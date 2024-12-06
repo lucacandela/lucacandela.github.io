@@ -1,7 +1,3 @@
-//import * as THREE from 'three';
-import './style.css';
-
-
 const diceContainers = document.querySelectorAll('.diceContainer');
 
 //Add click Listener
