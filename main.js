@@ -228,75 +228,81 @@ rollButton.addEventListener("click", () => {
   let d4Total = 0
   let d6Total = 0
   let d20Total = 0
-    existingDice.forEach(dice =>{
-      dice.classList.remove('rotate');
-      void dice.offsetWidth; // Force a reflow/repaint
-      dice.classList.add('rotate');
-      
-      
-      
-      let randomNumber = 0;
-      const diceImg = dice.children[0]
-      let baseImg = document.createElement("img")
-      console.log(dice.getAttribute("data-type"))
-      switch (dice.getAttribute("data-type")) {
-        case "4":
-          if (dice.firstElementChild){
-            dice.firstElementChild.remove()
-          }
+  existingDice.forEach(dice =>{
+    dice.classList.remove('rotate');
+    void dice.offsetWidth; // Force a reflow/repaint
+    dice.classList.add('rotate');
+    
+    
+    
+    let randomNumber = 0;
+    const diceImg = dice.children[0]
+    let baseImg = document.createElement("img")
+    console.log(dice.getAttribute("data-type"))
+    switch (dice.getAttribute("data-type")) {
+      case "4":
+        if (dice.firstElementChild){
+          dice.firstElementChild.remove()
+        }
 
-          randomNumber = Math.floor(Math.random() * 4) + 1;  
-          baseImg.src = `images/dice/d4/d4-0.svg`; // Use the random number in the file path
-          baseImg.id = `d4-${randomNumber}`;
-          dice.appendChild(baseImg)
-          setTimeout(() => {
-            dice.classList.remove("rotate")
-            appendTextToImgSVG(dice.querySelector("img"),randomNumber)
-            
-            d4Count += 1;
-            d4Total += randomNumber;
-          }, 1000);
-          break;
-        case "6":
-          if (dice.firstElementChild){
-            dice.firstElementChild.remove()
-          }
-          randomNumber = Math.floor(Math.random() * 6) + 1;
-          baseImg.src = `images/dice/d6/d6-0.svg`; // Use the random number in the file path
-          baseImg.id = `d6-${randomNumber}`;
-          dice.appendChild(baseImg)
-          setTimeout(() => {
-            dice.classList.remove("rotate")
-            appendTextToImgSVG(dice.querySelector("img"),randomNumber)
-
-            d6Count += 1;
-            d6Total += randomNumber;
-          }, 1000);
-          break;
-        case "20":
-          if (dice.firstElementChild){
-            dice.firstElementChild.remove()
-          }
-          
-          randomNumber = Math.floor(Math.random() * 20) + 1; 
-          baseImg.src = `images/dice/d20/d20-0.svg`; // Use the random number in the file path
-          baseImg.id = `d20-${randomNumber}`;
-          dice.appendChild(baseImg)
-          setTimeout(() => {
+        randomNumber = Math.floor(Math.random() * 4) + 1;  
+        baseImg.src = `images/dice/d4/d4-0.svg`; // Use the random number in the file path
+        baseImg.id = `d4-${randomNumber}`;
+        dice.appendChild(baseImg)
+        setTimeout(() => {
           dice.classList.remove("rotate")
           appendTextToImgSVG(dice.querySelector("img"),randomNumber)
           
-          d20Count += 1;
-          d20Total += randomNumber;
-          }, 1000);
-          break;
-      }
-      
-      
-  });
+          d4Count += 1;
+          d4Total += randomNumber;
+        }, 1000);
+        break;
+      case "6":
+        if (dice.firstElementChild){
+          dice.firstElementChild.remove()
+        }
+        randomNumber = Math.floor(Math.random() * 6) + 1;
+        baseImg.src = `images/dice/d6/d6-0.svg`; // Use the random number in the file path
+        baseImg.id = `d6-${randomNumber}`;
+        dice.appendChild(baseImg)
+        setTimeout(() => {
+          dice.classList.remove("rotate")
+          appendTextToImgSVG(dice.querySelector("img"),randomNumber)
 
-  const resultsParagraph = document.querySelector("p")
-  lettotal = parseInt(d4Total, 10) + parseInt(d6Total, 10) + parseInt(d20Total, 10)
-  resultsParagraph.textContent = `${d4Count}d4 + ${d6Count}d6 + ${d20Count}d20\nTotal Roll:}`
+          d6Count += 1;
+          d6Total += randomNumber;
+        }, 1000);
+        break;
+      case "20":
+        if (dice.firstElementChild){
+          dice.firstElementChild.remove()
+        }
+        
+        randomNumber = Math.floor(Math.random() * 20) + 1; 
+        baseImg.src = `images/dice/d20/d20-0.svg`; // Use the random number in the file path
+        baseImg.id = `d20-${randomNumber}`;
+        dice.appendChild(baseImg)
+        setTimeout(() => {
+        dice.classList.remove("rotate")
+        appendTextToImgSVG(dice.querySelector("img"),randomNumber)
+        
+        d20Count += 1;
+        d20Total += randomNumber;
+        }, 1000);
+        break;
+    }
+    
+    
+});
+const resultsParagraph = document.querySelector("p")
+resultsParagraph.innerHTML = ""
+setTimeout(() => {
+  
+  let finalD4Total = parseInt(d4Total,10);
+  let finalD6Total = parseInt(d6Total,10);
+  let finalD20Total = parseInt(d20Total,10);
+  let total = parseInt(d4Total, 10) + parseInt(d6Total, 10) + parseInt(d20Total, 10)
+  resultsParagraph.innerHTML = `${d4Count}d4: ${finalD4Total}<br>${d6Count}d6: ${finalD6Total} <br>${d20Count}d20: ${finalD20Total}<br>Total Roll: ${total}`
+}, 1200);
   
 })
