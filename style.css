@@ -5,7 +5,7 @@ body {
   flex-wrap: wrap;
   justify-content: center; /* Center the container horizontally */
   align-items: flex-start; /* Center the container vertically */
-  background-color: #f0f0f0;
+  background: linear-gradient(#ececec, #9fd3c7);
   overflow: hidden;
 }
 
@@ -26,7 +26,8 @@ body {
 
 .selectableDiceImage{
   height: 100%;
-  width: 100%;
+  width: 75%;
+  margin-bottom: 25%;
 }
 
 #diceSelector{
@@ -35,18 +36,22 @@ body {
   justify-content: space-evenly;
   width: 50%;
   max-width: 50%;
-  background-color: aqua;
+  overflow-x: hidden; /* Enable horizontal scrolling */
+  overflow-y: hidden;
+  white-space: nowrap; /* Ensure content doesn't wrap */
   text-align: center;
+  flex-direction: row;
+  cursor: pointer;
 }
+
 
 #resultsScreen{
   
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-evenly;
   width: 50%;
   max-width: 50%;
-  background-color: coral;
   text-align: center;
 
 }
@@ -62,18 +67,19 @@ body {
 
 .diceContainer{
   justify-content: space-between;
-  cursor: pointer;
-  width: 25%;
+  width: 20%;
+  transition: transform 1s ease; 
+}
 
+.rotate {
+  transform: rotate(1920deg);
+  transition: transform 1s ease;
 }
 
 .diceImage {
   width: 100%;
   height: 100%;
 
-}
-.diceImage:hover{
-  background-color: lightcoral;
 }
 
 /* Media Query for Desktop */
@@ -88,17 +94,38 @@ body {
 }
 
 
+img {
+  width: 100%;
+  height: 100%;
+}
 
 svg {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .fade-in {
   opacity: 0; /* Initially hidden */
-  transition: opacity 0.25s ease-in; /* Smooth transition */
+  transition: opacity 0.35s ease-in; /* Smooth transition */
 }
 
 .fade-in.show {
   opacity: 1; /* Fully visible */
+}
+
+
+
+/* CSS for the fade-in animation */
+@keyframes fadeInSvg {
+  0% {
+    opacity: 0; /* Start fully transparent */
+  }
+  100% {
+    opacity: 1; /* End fully opaque */
+  }
+}
+
+.diceContainer svg.fade-in {
+  animation: fadeInSvg 1s ease-out; /* 1s duration */
+  opacity: 0; /* Ensure it's initially invisible */
 }
