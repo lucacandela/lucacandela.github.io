@@ -20,9 +20,14 @@ body {
   display: flex;
   flex-direction: row; /* Stack the rows vertically */
   height: 35%; /* Take up 100% of the height of the body */
+  max-height: 35%;
   width: 100%; /* Optionally, make the container take full width */
 }
 
+.selectableDiceImage{
+  height: 100%;
+  width: 100%;
+}
 
 #diceSelector{
   display: flex;
@@ -32,6 +37,18 @@ body {
   max-width: 50%;
   background-color: aqua;
   text-align: center;
+}
+
+#resultsScreen{
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  max-width: 50%;
+  background-color: coral;
+  text-align: center;
+
 }
 
 .row {
@@ -47,6 +64,16 @@ body {
   justify-content: space-between;
   cursor: pointer;
   width: 25%;
+
+}
+
+.diceImage {
+  width: 100%;
+  height: 100%;
+
+}
+.diceImage:hover{
+  background-color: lightcoral;
 }
 
 /* Media Query for Desktop */
@@ -60,7 +87,18 @@ body {
   }
 }
 
-.diceImage {
+
+
+svg {
   width: 100%;
-  height: 100%;
+  height: auto;
+}
+
+.fade-in {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.25s ease-in; /* Smooth transition */
+}
+
+.fade-in.show {
+  opacity: 1; /* Fully visible */
 }
