@@ -47,25 +47,21 @@ body {
 }
 
 
-.buttonDiv{
-  flex-direction: row;
-  display: flex;
-  align-items: space-around;
-  justify-content: flex-start;
+#buttonDiv {
+  display: flex;              /* Use Flexbox to arrange buttons horizontally */
+  justify-content: space-between; /* Distribute buttons with space between */
+  align-items: center;        /* Vertically center buttons */
+  margin-bottom: 20px;        /* Add space between buttons and the paragraph */
 }
 
-#resultsScreen{
-  flex-direction: column;
+
+#resultsScreen {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  max-width: 50%;
-  text-align: center;
-  text-wrap: wrap;
+  flex-direction: column;     /* Stack the children (buttonDiv and p) vertically */
+  align-items: center;        /* Center align the content */
+}
   
 
-}
 
 .row {
   flex: 0 0 calc(100% / 3); /* Each row takes up 33% of the height of the container */
@@ -142,4 +138,9 @@ svg {
 }
 button{
   -webkit-appearance: none;
+  margin: 5px;                /* Add some margin between the buttons */
+}
+#resultParagraph {
+  margin-top: 10px;           /* Ensure the paragraph has space below the buttons */
+  text-align: center;         /* Center the text if desired */
 }
