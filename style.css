@@ -26,33 +26,44 @@ body {
 
 .selectableDiceImage{
   height: 100%;
-  width: 75%;
-  margin-bottom: 25%;
+  width: 100%;
+  object-fit: contain;
+  min-width: 33%;
+  flex-shrink: 0;
 }
 
 #diceSelector{
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 50%;
-  max-width: 50%;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden; /* Enable horizontal scrolling */
   overflow-y: hidden;
-  white-space: nowrap; /* Ensure content doesn't wrap */
   text-align: center;
-  flex-direction: row;
+  flex-direction: center;
   cursor: pointer;
+  min-width: 50%;
 }
 
 
-#resultsScreen{
-  
+.buttonDiv{
+  flex-direction: row;
   display: flex;
-  align-items: start;
+  align-items: space-around;
+  justify-content: flex-start;
+}
+
+#resultsScreen{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
   justify-content: space-evenly;
-  width: 50%;
+  width: 100%;
   max-width: 50%;
   text-align: center;
+  text-wrap: wrap;
+  
 
 }
 
@@ -128,4 +139,7 @@ svg {
 .diceContainer svg.fade-in {
   animation: fadeInSvg 1s ease-out; /* 1s duration */
   opacity: 0; /* Ensure it's initially invisible */
+}
+button{
+  -webkit-appearance: none;
 }

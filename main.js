@@ -294,5 +294,9 @@ rollButton.addEventListener("click", () => {
       
       
   });
+
+  const resultsParagraph = document.querySelector("p")
+  lettotal = parseInt(d4Total, 10) + parseInt(d6Total, 10) + parseInt(d20Total, 10)
+  resultsParagraph.textContent = `${d4Count}d4 + ${d6Count}d6 + ${d20Count}d20\nTotal Roll:}`
   
 })
