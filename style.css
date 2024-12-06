@@ -18,7 +18,7 @@ body {
 .rowContainer {
   display: flex;
   flex-direction: row; /* Stack the rows vertically */
-  height: 50%; /* Take up 100% of the height of the body */
+  height: 35%; /* Take up 100% of the height of the body */
   width: 100%; /* Optionally, make the container take full width */
 }
 
